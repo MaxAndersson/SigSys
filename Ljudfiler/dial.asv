@@ -72,7 +72,6 @@ end
 FS 
 NBITS
 WAVEFILE='dialtones.wav';
-plot(tones)
 wavwrite(tones,FS,NBITS,WAVEFILE);
 sound(tones,FS);
 
