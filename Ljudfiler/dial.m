@@ -72,7 +72,13 @@ end
 FS 
 NBITS
 WAVEFILE='dialtones.wav';
+N = length(tones);
+df = FS/N; %Frequency axis
+f = (0:N-1)*df;
+U_t=fft(tones);
 plot(tones)
+figure;
+plot(f(1:2600),abs(U_t(1:2600)))
 wavwrite(tones,FS,NBITS,WAVEFILE);
 sound(tones,FS);
 
