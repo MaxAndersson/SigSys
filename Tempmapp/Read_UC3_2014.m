@@ -17,12 +17,12 @@ b=0;
 sta=0;
 che=0;
 status = 0;
-Fs = 12000000/256; 
-%Fs = 132000; %46875;  %89280; 
+%Fs = 12000000/256; 
+Fs = 132000; %46875;  %89280; 
 cal=0;
 datasize=1024;
 
-uc3port=serial('com4');    % Port "com?" may vary every time when the USB is plugged in
+uc3port=serial('com5');    % Port "com?" may vary every time when the USB is plugged in
 % go to Device Manager and check the port number for the USB-RS232 cable
 set(uc3port, 'InputBufferSize', 256); %number of bytes in inout buffer
 set(uc3port, 'FlowControl', 'none');
@@ -94,7 +94,8 @@ while(1)
              t= linspace(0,length(vect),length(vect))/Fs;  % Sampling frequency 12MHz/256 = 46875
 %             t = t*1e6;      % converted to us
              t = t*1e3;      % converted to ms
-             plot(t,vect);
+             plot(t,fft(vect));
+             %  plot(t,vect);
              grid on;
 %             xlabel('time  : us')
              xlabel('time  : ms')

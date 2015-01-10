@@ -89,10 +89,10 @@ for m = 1:G
   
 
 
-  figure;
-  plot(f(1:1600),abs(U_t(1:1600)));
+  %figure;
+  %plot(f(1:1600),abs(U_t(1:1600)));
  
-  tones = tones(8000:length(tones));
+ % tones = tones(8000:length(tones));
 end
 
 
