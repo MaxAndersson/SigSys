@@ -249,6 +249,8 @@ Discarded input sections
                 0x00000000       0x16 src/ASF/avr32/drivers/gpio/gpio.o
  .text.gpio_disable_pin_glitch_filter
                 0x00000000       0x16 src/ASF/avr32/drivers/gpio/gpio.o
+ .text.gpio_disable_pin_interrupt
+                0x00000000       0x16 src/ASF/avr32/drivers/gpio/gpio.o
  .text.gpio_get_pin_interrupt_flag
                 0x00000000       0x18 src/ASF/avr32/drivers/gpio/gpio.o
  .text          0x00000000        0x0 src/ASF/avr32/drivers/intc/exception.o
@@ -643,7 +645,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
 .plt
  *(.plt)
 
-.text           0x80002008     0x11e4
+.text           0x80002008     0x1194
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text.board_init
                 0x80002008       0x70 src/ASF/avr32/boards/uc3_a3_xplained/init.o
@@ -691,143 +693,139 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .text.gpio_enable_pin_interrupt
                 0x80002302       0x46 src/ASF/avr32/drivers/gpio/gpio.o
                 0x80002302                gpio_enable_pin_interrupt
- .text.gpio_disable_pin_interrupt
-                0x80002348       0x16 src/ASF/avr32/drivers/gpio/gpio.o
-                0x80002348                gpio_disable_pin_interrupt
  .text.gpio_clear_pin_interrupt_flag
-                0x8000235e       0x16 src/ASF/avr32/drivers/gpio/gpio.o
-                0x8000235e                gpio_clear_pin_interrupt_flag
+                0x80002348       0x16 src/ASF/avr32/drivers/gpio/gpio.o
+                0x80002348                gpio_clear_pin_interrupt_flag
  .text._unhandled_interrupt
-                0x80002374        0x2 src/ASF/avr32/drivers/intc/intc.o
- *fill*         0x80002376        0x2 d703d703
+                0x8000235e        0x2 src/ASF/avr32/drivers/intc/intc.o
  .text.INTC_register_interrupt
-                0x80002378       0x80 src/ASF/avr32/drivers/intc/intc.o
-                0x80002378                INTC_register_interrupt
+                0x80002360       0x80 src/ASF/avr32/drivers/intc/intc.o
+                0x80002360                INTC_register_interrupt
  .text.INTC_init_interrupts
-                0x800023f8       0x54 src/ASF/avr32/drivers/intc/intc.o
-                0x800023f8                INTC_init_interrupts
+                0x800023e0       0x54 src/ASF/avr32/drivers/intc/intc.o
+                0x800023e0                INTC_init_interrupts
  .text._get_interrupt_handler
-                0x8000244c       0x38 src/ASF/avr32/drivers/intc/intc.o
-                0x8000244c                _get_interrupt_handler
+                0x80002434       0x38 src/ASF/avr32/drivers/intc/intc.o
+                0x80002434                _get_interrupt_handler
  .text.pdca_get_handler
-                0x80002484       0x14 src/ASF/avr32/drivers/pdca/pdca.o
-                0x80002484                pdca_get_handler
+                0x8000246c       0x14 src/ASF/avr32/drivers/pdca/pdca.o
+                0x8000246c                pdca_get_handler
  .text.pdca_enable
-                0x80002498       0x10 src/ASF/avr32/drivers/pdca/pdca.o
-                0x80002498                pdca_enable
+                0x80002480       0x10 src/ASF/avr32/drivers/pdca/pdca.o
+                0x80002480                pdca_enable
  .text.pdca_enable_interrupt_transfer_complete
-                0x800024a8       0x10 src/ASF/avr32/drivers/pdca/pdca.o
-                0x800024a8                pdca_enable_interrupt_transfer_complete
+                0x80002490       0x10 src/ASF/avr32/drivers/pdca/pdca.o
+                0x80002490                pdca_enable_interrupt_transfer_complete
  .text.pdca_enable_interrupt_reload_counter_zero
-                0x800024b8       0x10 src/ASF/avr32/drivers/pdca/pdca.o
-                0x800024b8                pdca_enable_interrupt_reload_counter_zero
+                0x800024a0       0x10 src/ASF/avr32/drivers/pdca/pdca.o
+                0x800024a0                pdca_enable_interrupt_reload_counter_zero
  .text.pdca_disable_interrupt_reload_counter_zero
-                0x800024c8       0x20 src/ASF/avr32/drivers/pdca/pdca.o
-                0x800024c8                pdca_disable_interrupt_reload_counter_zero
+                0x800024b0       0x20 src/ASF/avr32/drivers/pdca/pdca.o
+                0x800024b0                pdca_disable_interrupt_reload_counter_zero
  .text.pdca_disable_interrupt_transfer_complete
-                0x800024e8       0x20 src/ASF/avr32/drivers/pdca/pdca.o
-                0x800024e8                pdca_disable_interrupt_transfer_complete
+                0x800024d0       0x20 src/ASF/avr32/drivers/pdca/pdca.o
+                0x800024d0                pdca_disable_interrupt_transfer_complete
  .text.pdca_reload_channel
-                0x80002508       0x30 src/ASF/avr32/drivers/pdca/pdca.o
-                0x80002508                pdca_reload_channel
+                0x800024f0       0x30 src/ASF/avr32/drivers/pdca/pdca.o
+                0x800024f0                pdca_reload_channel
  .text.pdca_init_channel
-                0x80002538       0x58 src/ASF/avr32/drivers/pdca/pdca.o
-                0x80002538                pdca_init_channel
+                0x80002520       0x58 src/ASF/avr32/drivers/pdca/pdca.o
+                0x80002520                pdca_init_channel
  .text.pm_set_osc0_mode
-                0x80002590        0xa src/ASF/avr32/drivers/pm/pm.o
- *fill*         0x8000259a        0x2 d703d703
+                0x80002578        0xa src/ASF/avr32/drivers/pm/pm.o
+ *fill*         0x80002582        0x2 d703d703
  .text.pm_enable_osc0_crystal
-                0x8000259c       0x3c src/ASF/avr32/drivers/pm/pm.o
-                0x8000259c                pm_enable_osc0_crystal
+                0x80002584       0x3c src/ASF/avr32/drivers/pm/pm.o
+                0x80002584                pm_enable_osc0_crystal
  .text.pm_enable_clk0_no_wait
-                0x800025d8       0x10 src/ASF/avr32/drivers/pm/pm.o
-                0x800025d8                pm_enable_clk0_no_wait
+                0x800025c0       0x10 src/ASF/avr32/drivers/pm/pm.o
+                0x800025c0                pm_enable_clk0_no_wait
  .text.pm_wait_for_clk0_ready
-                0x800025e8        0xa src/ASF/avr32/drivers/pm/pm.o
-                0x800025e8                pm_wait_for_clk0_ready
- *fill*         0x800025f2        0x2 d703d703
+                0x800025d0        0xa src/ASF/avr32/drivers/pm/pm.o
+                0x800025d0                pm_wait_for_clk0_ready
+ *fill*         0x800025da        0x2 d703d703
  .text.pm_enable_clk0
-                0x800025f4       0x1c src/ASF/avr32/drivers/pm/pm.o
-                0x800025f4                pm_enable_clk0
+                0x800025dc       0x1c src/ASF/avr32/drivers/pm/pm.o
+                0x800025dc                pm_enable_clk0
  .text.pm_cksel
-                0x80002610       0x46 src/ASF/avr32/drivers/pm/pm.o
-                0x80002610                pm_cksel
+                0x800025f8       0x46 src/ASF/avr32/drivers/pm/pm.o
+                0x800025f8                pm_cksel
  .text.pm_pll_setup
-                0x80002656       0x22 src/ASF/avr32/drivers/pm/pm.o
-                0x80002656                pm_pll_setup
+                0x8000263e       0x22 src/ASF/avr32/drivers/pm/pm.o
+                0x8000263e                pm_pll_setup
  .text.pm_pll_set_option
-                0x80002678       0x1a src/ASF/avr32/drivers/pm/pm.o
-                0x80002678                pm_pll_set_option
+                0x80002660       0x1a src/ASF/avr32/drivers/pm/pm.o
+                0x80002660                pm_pll_set_option
  .text.pm_pll_enable
-                0x80002692        0xe src/ASF/avr32/drivers/pm/pm.o
-                0x80002692                pm_pll_enable
+                0x8000267a        0xe src/ASF/avr32/drivers/pm/pm.o
+                0x8000267a                pm_pll_enable
  .text.pm_wait_for_pll0_locked
-                0x800026a0        0xa src/ASF/avr32/drivers/pm/pm.o
-                0x800026a0                pm_wait_for_pll0_locked
+                0x80002688        0xa src/ASF/avr32/drivers/pm/pm.o
+                0x80002688                pm_wait_for_pll0_locked
  .text.pm_switch_to_clock
-                0x800026aa        0xa src/ASF/avr32/drivers/pm/pm.o
-                0x800026aa                pm_switch_to_clock
+                0x80002692        0xa src/ASF/avr32/drivers/pm/pm.o
+                0x80002692                pm_switch_to_clock
  .text.pm_switch_to_osc0
-                0x800026b4       0x2c src/ASF/avr32/drivers/pm/pm.o
-                0x800026b4                pm_switch_to_osc0
+                0x8000269c       0x2c src/ASF/avr32/drivers/pm/pm.o
+                0x8000269c                pm_switch_to_osc0
  .text.pm_configure_clocks
-                0x800026e0      0x21c src/ASF/avr32/drivers/pm/pm_conf_clocks.o
-                0x800026e0                pm_configure_clocks
+                0x800026c8      0x21c src/ASF/avr32/drivers/pm/pm_conf_clocks.o
+                0x800026c8                pm_configure_clocks
  .text.tc_init_waveform
-                0x800028fc       0x9c src/ASF/avr32/drivers/tc/tc.o
-                0x800028fc                tc_init_waveform
+                0x800028e4       0x9c src/ASF/avr32/drivers/tc/tc.o
+                0x800028e4                tc_init_waveform
  .text.tc_start
-                0x80002998       0x12 src/ASF/avr32/drivers/tc/tc.o
-                0x80002998                tc_start
+                0x80002980       0x12 src/ASF/avr32/drivers/tc/tc.o
+                0x80002980                tc_start
  .text.tc_read_sr
-                0x800029aa       0x12 src/ASF/avr32/drivers/tc/tc.o
-                0x800029aa                tc_read_sr
+                0x80002992       0x12 src/ASF/avr32/drivers/tc/tc.o
+                0x80002992                tc_read_sr
  .text.tc_write_ra
-                0x800029bc       0x34 src/ASF/avr32/drivers/tc/tc.o
-                0x800029bc                tc_write_ra
+                0x800029a4       0x34 src/ASF/avr32/drivers/tc/tc.o
+                0x800029a4                tc_write_ra
  .text.tc_write_rc
-                0x800029f0       0x34 src/ASF/avr32/drivers/tc/tc.o
-                0x800029f0                tc_write_rc
+                0x800029d8       0x34 src/ASF/avr32/drivers/tc/tc.o
+                0x800029d8                tc_write_rc
  .text.tc_configure_interrupts
-                0x80002a24      0x108 src/ASF/avr32/drivers/tc/tc.o
-                0x80002a24                tc_configure_interrupts
+                0x80002a0c      0x108 src/ASF/avr32/drivers/tc/tc.o
+                0x80002a0c                tc_configure_interrupts
  .text.usart_set_async_baudrate
-                0x80002b2c       0x5a src/ASF/avr32/drivers/usart/usart.o
+                0x80002b14       0x5a src/ASF/avr32/drivers/usart/usart.o
  .text.usart_write_char
-                0x80002b86       0x14 src/ASF/avr32/drivers/usart/usart.o
-                0x80002b86                usart_write_char
- *fill*         0x80002b9a        0x2 d703d703
+                0x80002b6e       0x14 src/ASF/avr32/drivers/usart/usart.o
+                0x80002b6e                usart_write_char
+ *fill*         0x80002b82        0x2 d703d703
  .text.usart_putchar
-                0x80002b9c       0x2c src/ASF/avr32/drivers/usart/usart.o
-                0x80002b9c                usart_putchar
+                0x80002b84       0x2c src/ASF/avr32/drivers/usart/usart.o
+                0x80002b84                usart_putchar
  .text.usart_write_line
-                0x80002bc8       0x24 src/ASF/avr32/drivers/usart/usart.o
-                0x80002bc8                usart_write_line
+                0x80002bb0       0x24 src/ASF/avr32/drivers/usart/usart.o
+                0x80002bb0                usart_write_line
  .text.usart_reset
-                0x80002bec       0x2c src/ASF/avr32/drivers/usart/usart.o
-                0x80002bec                usart_reset
+                0x80002bd4       0x2c src/ASF/avr32/drivers/usart/usart.o
+                0x80002bd4                usart_reset
  .text.usart_init_rs232
-                0x80002c18       0xcc src/ASF/avr32/drivers/usart/usart.o
-                0x80002c18                usart_init_rs232
- .text._stext   0x80002ce4       0x3c src/ASF/avr32/utils/startup/startup_uc3.o
+                0x80002c00       0xcc src/ASF/avr32/drivers/usart/usart.o
+                0x80002c00                usart_init_rs232
+ .text._stext   0x80002ccc       0x3c src/ASF/avr32/utils/startup/startup_uc3.o
                                  0x50 (size before relaxing)
-                0x80002ce4                _stext
+                0x80002ccc                _stext
  .text.sysclk_init
-                0x80002d20        0x2 src/ASF/common/services/clock/uc3a3_a4/sysclk.o
-                0x80002d20                sysclk_init
+                0x80002d08        0x2 src/ASF/common/services/clock/uc3a3_a4/sysclk.o
+                0x80002d08                sysclk_init
  .text.User_Binbcd
-                0x80002d22        0x8 src/main.o
- *fill*         0x80002d2a        0x2 d703d703
+                0x80002d0a        0x8 src/main.o
+ *fill*         0x80002d12        0x2 d703d703
  .text.tc_irq_dsp
-                0x80002d2c       0xa8 src/main.o
+                0x80002d14       0x90 src/main.o
  .text.User_Ext_Trigger_Isr
-                0x80002dd4       0x50 src/main.o
+                0x80002da4       0x44 src/main.o
  .text.pdca_dac_handler
-                0x80002e24       0x1c src/main.o
+                0x80002de8       0x1c src/main.o
  .text.pdca_adc_handler
-                0x80002e40       0x1c src/main.o
- .text.main     0x80002e5c      0x390 src/main.o
-                0x80002e5c                main
+                0x80002e04       0x1c src/main.o
+ .text.main     0x80002e20      0x37c src/main.o
+                0x80002e20                main
  *(.text.*personality*)
  *(.gnu.warning)
 
@@ -859,18 +857,18 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
                 0x80003530        0x4 src/main.o
  .rodata.DSP_BUFFER_PTR
                 0x80003534        0x4 src/main.o
+ .rodata.tc_interrupt.15444
+                0x80003538        0x4 src/main.o
  .rodata.DAC_PDCA_OPT
-                0x80003538       0x18 src/main.o
+                0x8000353c       0x18 src/main.o
  .rodata.str1.4
-                0x80003550       0x14 src/main.o
- .rodata.C.86.15475
-                0x80003564       0x38 src/main.o
- .rodata.tc_interrupt.15448
-                0x8000359c        0x4 src/main.o
+                0x80003554       0x1c src/main.o
+ .rodata.waveform_opt.15443
+                0x80003570        0x8 src/main.o
  .rodata.ADC_PDCA_OPT
-                0x800035a0       0x18 src/main.o
- .rodata.waveform_opt.15447
-                0x800035b8        0x8 src/main.o
+                0x80003578       0x18 src/main.o
+ .rodata.C.84.15471
+                0x80003590       0x30 src/main.o
 
 .rodata1
  *(.rodata1)
@@ -962,9 +960,8 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
                 0x00000008        0x4 src/ASF/avr32/drivers/flashc/flashc.o
                 0x00000008                flashc_wait_until_ready
  .data.DSP_STATE
-                0x0000000c        0x2 src/main.o
- *fill*         0x0000000e        0x2 
- .data.User_Usart_OPT.15459
+                0x0000000c        0x4 src/main.o
+ .data.User_Usart_OPT.15455
                 0x00000010        0xc src/main.o
  *(.gnu.linkonce.d.*personality*)
 
@@ -1043,18 +1040,18 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
                 0x00000128        0x4 src/ASF/avr32/drivers/intc/intc.o
  .bss._int_line_handler_table_29
                 0x0000012c        0x4 src/ASF/avr32/drivers/intc/intc.o
+ .bss.clockSettings.15456
+                0x00000130       0x10 src/main.o
  .bss.ADC_PDCA_BUFFER1
-                0x00000130     0x4000 src/main.o
- .bss.clockSettings.15460
-                0x00004130       0x10 src/main.o
- .bss.tc_tick   0x00004140        0x4 src/main.o
+                0x00000140     0x4000 src/main.o
  .bss.DAC_PDCA_BUFFER1
-                0x00004144     0x4000 src/main.o
+                0x00004140     0x4000 src/main.o
+ .bss.tc_tick   0x00008140        0x4 src/main.o
  .bss.DSP_REAL_BUFFER
                 0x00008144     0x2000 src/main.o
- .bss.counter   0x0000a144        0x4 src/main.o
  *(COMMON)
                 0x0000a148                . = ALIGN (0x8)
+ *fill*         0x0000a144        0x4 
                 0x0000a148                . = ALIGN (0x8)
                 0x0000a148                _end = .
                 0x0000a148                PROVIDE (end, .)
@@ -1216,7 +1213,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_abbrev  0x000018f7      0x2d0 src/ASF/common/services/clock/uc3a3_a4/sysclk.o
  .debug_abbrev  0x00001bc7      0x301 src/main.o
 
-.debug_line     0x00000000     0x77d7
+.debug_line     0x00000000     0x77d0
  *(.debug_line)
  .debug_line    0x00000000      0x7a2 src/ASF/avr32/boards/uc3_a3_xplained/init.o
  .debug_line    0x000007a2      0x7bf src/ASF/avr32/drivers/abdac/abdac.o
@@ -1233,9 +1230,9 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_line    0x00006264       0xf2 src/ASF/avr32/utils/startup/startup_uc3.o
  .debug_line    0x00006356       0x67 src/ASF/avr32/utils/startup/trampoline_uc3.o
  .debug_line    0x000063bd      0x966 src/ASF/common/services/clock/uc3a3_a4/sysclk.o
- .debug_line    0x00006d23      0xab4 src/main.o
+ .debug_line    0x00006d23      0xaad src/main.o
 
-.debug_frame    0x00000000     0x15a0
+.debug_frame    0x00000000     0x15a4
  *(.debug_frame)
  .debug_frame   0x00000000       0x2c src/ASF/avr32/boards/uc3_a3_xplained/init.o
  .debug_frame   0x0000002c       0x84 src/ASF/avr32/drivers/abdac/abdac.o
@@ -1249,7 +1246,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_frame   0x0000104c      0x148 src/ASF/avr32/drivers/tc/tc.o
  .debug_frame   0x00001194      0x2ac src/ASF/avr32/drivers/usart/usart.o
  .debug_frame   0x00001440       0xac src/ASF/common/services/clock/uc3a3_a4/sysclk.o
- .debug_frame   0x000014ec       0xb4 src/main.o
+ .debug_frame   0x000014ec       0xb8 src/main.o
 
 .debug_str      0x00000000     0x34ad
  *(.debug_str)
@@ -1296,7 +1293,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_loc     0x00003153      0x12d src/ASF/common/services/clock/uc3a3_a4/sysclk.o
  .debug_loc     0x00003280       0xce src/main.o
 
-.debug_macinfo  0x00000000   0xe3ca79
+.debug_macinfo  0x00000000   0xe3ca7a
  *(.debug_macinfo)
  .debug_macinfo
                 0x00000000   0x118e16 src/ASF/avr32/boards/uc3_a3_xplained/init.o
@@ -1323,7 +1320,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_macinfo
                 0x00c06e7a   0x11a0c4 src/ASF/common/services/clock/uc3a3_a4/sysclk.o
  .debug_macinfo
-                0x00d20f3e   0x11bb3b src/main.o
+                0x00d20f3e   0x11bb3c src/main.o
 
 .debug_weaknames
  *(.debug_weaknames)

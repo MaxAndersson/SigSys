@@ -22,7 +22,7 @@ Fs = 132000; %46875;  %89280;
 cal=0;
 datasize=1024;
 
-uc3port=serial('com5');    % Port "com?" may vary every time when the USB is plugged in
+uc3port=serial('com4');    % Port "com?" may vary every time when the USB is plugged in
 % go to Device Manager and check the port number for the USB-RS232 cable
 set(uc3port, 'InputBufferSize', 256); %number of bytes in inout buffer
 set(uc3port, 'FlowControl', 'none');
@@ -65,7 +65,7 @@ while(1)
         sta=sta+1;
     end
     che=che+1;
-   %  if  (sta==6&&che==sta);
+     if  (sta==6&&che==sta);
         che=0;
         sta=0;
         disp('Data recieving, Data saving to test1.txt')
@@ -103,8 +103,8 @@ while(1)
             x=x+1;          
         end
           disp('  ');
-       %   break;
-   % end
+          break;
+    end
     
 end
 
