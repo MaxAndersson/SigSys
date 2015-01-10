@@ -1,6 +1,6 @@
 % Generate a 1 kHz sine waveform with a 10 seconds duration
 Fs = 44.1e3; % one of the standard sampling freq. for audio signals
-Tm = 120; % max duration in seconds
+Tm = 60; % max duration in seconds
 Nm = Fs*Tm; % the max number of sampling points
 t = (0:Nm)/Fs; % t-axis
 A0 = 1; % Amplitude of the signal
