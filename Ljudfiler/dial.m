@@ -72,13 +72,31 @@ end
 FS 
 NBITS
 WAVEFILE='dialtones.wav';
-N = length(tones);
-df = FS/N; %Frequency axis
-f = (0:N-1)*df;
-U_t=fft(tones);
-plot(tones)
+% EGEN ALGORITM............
+
+
+
+G = length(tones) / 8000;
 figure;
-plot(f(1:2600),abs(U_t(1:2600)))
+plot(tones);
+for m = 1:G
+  tones1 = tones(1:8000);
+  
+  U_t=fft(tones1);
+  N = length(tones1);
+  df = FS/N;
+  f = (0:N-1)*df;
+  
+
+
+  figure;
+  plot(f(1:1600),abs(U_t(1:1600)));
+ 
+  tones = tones(8000:length(tones));
+end
+
+
+% SLUT PÅ EGEN ALGORITM
 wavwrite(tones,FS,NBITS,WAVEFILE);
 sound(tones,FS);
 
