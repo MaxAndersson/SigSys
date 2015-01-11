@@ -4,7 +4,7 @@ Tm = 30; % max duration in seconds
 Nm = Fs*Tm; % the max number of sampling points
 t = (0:Nm)/Fs; % t-axis
 A0 = 1; % Amplitude of the signal
-f0 = 1e5; % frequency of the signal in Hz
+f0 = 1e3; % frequency of the signal in Hz
 x_t = A0*sin(2*pi*f0*t);
 figure;
 nn = 1:200; plot(t(nn),x_t(nn))

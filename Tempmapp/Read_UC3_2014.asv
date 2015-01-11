@@ -20,7 +20,7 @@ status = 0;
 %Fs = 12000000/256; 
 Fs = 44100; %132000; %46875;  %89280; 
 cal=0;
-datasize=1024;
+datasize=4096;
 
 uc3port=serial('com5');    % Port "com?" may vary every time when the USB is plugged in
 % go to Device Manager and check the port number for the USB-RS232 cable
