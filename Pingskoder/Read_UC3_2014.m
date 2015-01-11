@@ -17,11 +17,15 @@ b=0;
 sta=0;
 che=0;
 status = 0;
-%Fs = 12000000/256; 
-Fs = 132000; %46875;  %89280; 
+Fs = 12000000/256; 
+%Fs = %132000; %46875;  %89280; 
 cal=0;
-datasize=1024;
+datasize=4096;
 
+try 
+    fclose(instrfind)
+catch
+end
 uc3port=serial('com5');    % Port "com?" may vary every time when the USB is plugged in
 % go to Device Manager and check the port number for the USB-RS232 cable
 set(uc3port, 'InputBufferSize', 256); %number of bytes in inout buffer
@@ -47,25 +51,6 @@ disp('Port Setup Done!!');
 disp(prop);
 fid=fopen('test1.txt','wt');
 while(1)
-    recdta = fread(uc3port,1,'uint8');
-    if  recdta=='M';
-        sta=1;
-        che=0;
-    end
-    if  recdta=='T';
-        sta=sta+1;
-    end
-    if  recdta=='L';
-        sta=sta+1;
-    end
-    if  recdta=='A';
-        sta=sta+1;
-    end
-    if  recdta=='B';
-        sta=sta+1;
-    end
-    che=che+1;
-   %  if  (sta==6&&che==sta);
         che=0;
         sta=0;
         disp('Data recieving, Data saving to test1.txt')
@@ -92,19 +77,18 @@ while(1)
                
             end
              t= linspace(0,length(vect),length(vect))/Fs;  % Sampling frequency 12MHz/256 = 46875
-%             t = t*1e6;      % converted to us
-             t = t*1e3;      % converted to ms
+            t = t*1e6;      % converted to us
+%             t = t*1e3;      % converted to ms
              plot(t,vect);
              grid on;
-%             xlabel('time  : us')
-             xlabel('time  : ms')
+             xlabel('time  : us')
+%             xlabel('time  : ms')
              drawnow;
             disp(' ');
             x=x+1;          
         end
           disp('  ');
-       %   break;
-   % end
+         break;
     
 end
 

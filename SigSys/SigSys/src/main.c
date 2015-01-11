@@ -216,6 +216,7 @@ static void User_Usart_int2str(uint32_t User_int32)
 		usart_putchar(USART,User_Binbcd( User_int32%1000/100)) ;
 		usart_putchar(USART,User_Binbcd( User_int32%100/10)) ;
 		usart_putchar(USART,User_Binbcd( User_int32%10)) ;
+		
 }
 
 /*----------------------------------------------------------------------*/
@@ -399,7 +400,7 @@ int main (void)
     tc_init(tc,ADC_FREQ);
     while (1)
     {	
-		if (counter >= 178*(ADC_FREQ/1000)) // control the time when the next Ext_Trigger is valid
+		if (counter >= ADC_FREQ) // control the time when the next Ext_Trigger is valid
 		{						 // counter = the number of cycles; "counter = ADC_FREQ" corresponds to the time of 1 second
 			gpio_enable_pin_interrupt(Ext_Trigger_Pin,GPIO_RISING_EDGE);  // "counter = ADC_FREQ/1000" corresponds to 1 ms
 		}
@@ -413,7 +414,7 @@ int main (void)
 /*......................................................................*/
 /*            Do DSP HERE                                               */
 /*......................................................................*/
-			for (int ind=0;ind<= DATA_SIZE;ind++){
+			for (int ind=0;ind<= Buffer_Size;ind++){
 
 				User_Usart_int2str(DSP_REAL_BUFFER[ind]*2);
 				usart_write_line(USART,",");

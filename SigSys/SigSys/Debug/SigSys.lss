@@ -3196,10 +3196,10 @@ static void User_Usart_int2str(uint32_t User_int32)
     tc_init(tc,ADC_FREQ);
     while (1)
     {	
-		if (counter >= 178*(ADC_FREQ/1000)) // control the time when the next Ext_Trigger is valid
+		if (counter >= ADC_FREQ) // control the time when the next Ext_Trigger is valid
 8000300e:	4f 3a       	lddpc	r10,800031d8 <main+0x37c>
 80003010:	74 08       	ld.w	r8,r10[0x0]
-80003012:	e0 48 1f fb 	cp.w	r8,8187
+80003012:	e0 48 b7 1a 	cp.w	r8,46874
 80003016:	e0 88 00 06 	brls	80003022 <main+0x1c6>
 		{						 // counter = the number of cycles; "counter = ADC_FREQ" corresponds to the time of 1 second
 			gpio_enable_pin_interrupt(Ext_Trigger_Pin,GPIO_RISING_EDGE);  // "counter = ADC_FREQ/1000" corresponds to 1 ms
@@ -3256,7 +3256,7 @@ static void User_Usart_int2str(uint32_t User_int32)
 /*......................................................................*/
 /*            Do DSP HERE                                               */
 /*......................................................................*/
-			for (int ind=0;ind<= DATA_SIZE;ind++){
+			for (int ind=0;ind<= Buffer_Size;ind++){
 
 				User_Usart_int2str(DSP_REAL_BUFFER[ind]*2);
 8000306c:	e6 04 04 16 	ld.sh	r6,r3[r4<<0x1]
@@ -3324,7 +3324,7 @@ static void User_Usart_int2str(uint32_t User_int32)
 80003122:	f0 1f 00 31 	mcall	800031e4 <main+0x388>
 /*            Do DSP HERE                                               */
 /*......................................................................*/
-			for (int ind=0;ind<= DATA_SIZE;ind++){
+			for (int ind=0;ind<= Buffer_Size;ind++){
 
 				User_Usart_int2str(DSP_REAL_BUFFER[ind]*2);
 				usart_write_line(USART,",");
@@ -3336,9 +3336,9 @@ static void User_Usart_int2str(uint32_t User_int32)
 /*......................................................................*/
 /*            Do DSP HERE                                               */
 /*......................................................................*/
-			for (int ind=0;ind<= DATA_SIZE;ind++){
+			for (int ind=0;ind<= Buffer_Size;ind++){
 8000312e:	2f f4       	sub	r4,-1
-80003130:	e0 44 04 01 	cp.w	r4,1025
+80003130:	e0 44 10 01 	cp.w	r4,4097
 80003134:	c9 c1       	brne	8000306c <main+0x210>
 			}
 
