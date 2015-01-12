@@ -20,7 +20,7 @@ status = 0;
 Fs = 12000000/256; 
 %Fs = %132000; %46875;  %89280; 
 cal=0;
-datasize=4096;
+datasize=1024;
 
 try 
     fclose(instrfind)
@@ -79,9 +79,16 @@ while(1)
              t= linspace(0,length(vect),length(vect))/Fs;  % Sampling frequency 12MHz/256 = 46875
             t = t*1e6;      % converted to us
 %             t = t*1e3;      % converted to ms
-             plot(t,vect);
+            %NEW ALG
+            N = length(vect);
+            df = Fs/N;
+            f = (0:N-1)*df;
+            
+            plot(f,vect);
+            
+            % plot(t,vect);
              grid on;
-             xlabel('time  : us')
+             %xlabel('time  : us')
 %             xlabel('time  : ms')
              drawnow;
             disp(' ');

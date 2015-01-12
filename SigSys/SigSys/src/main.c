@@ -414,9 +414,13 @@ int main (void)
 /*......................................................................*/
 /*            Do DSP HERE                                               */
 /*......................................................................*/
-			for (int ind=0;ind<= Buffer_Size;ind++){
 
-				User_Usart_int2str(DSP_REAL_BUFFER[ind]*2);
+	dsp16_trans_realcomplexfft(&DSP_COMP_BUFFER,&DSP_REAL_BUFFER,N_of_bits);
+	dsp16_vect_complex_abs(&DSP_REAL_BUFFER,&DSP_COMP_BUFFER,DATA_SIZE);
+	
+			for (int ind=0;ind<= DATA_SIZE;ind =ind++){
+
+				User_Usart_int2str(DSP_REAL_BUFFER[ind]);
 				usart_write_line(USART,",");
 			}
 
@@ -428,3 +432,4 @@ int main (void)
     }
 }
 /***************************** End of MAIN *************************************/
+// batchisp.exe -device at32uc3a3256 -hardware usb -operation erase f memory flash blankcheck loadbuffer 'C:\Users\user\Documents\Atmel Studio\6.2\SigSys\SigSys\SigSys\Debug\SigSys.hex' program verify start reset 0
