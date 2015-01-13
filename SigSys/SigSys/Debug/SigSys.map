@@ -663,7 +663,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
 .plt
  *(.plt)
 
-.text           0x80002008     0x16c0
+.text           0x80002008     0x16b8
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text.board_init
                 0x80002008       0x70 src/ASF/avr32/boards/uc3_a3_xplained/init.o
@@ -835,42 +835,41 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .text.sysclk_init
                 0x80002d24        0x2 src/ASF/common/services/clock/uc3a3_a4/sysclk.o
                 0x80002d24                sysclk_init
- .text.User_Binbcd
-                0x80002d26        0x8 src/main.o
- *fill*         0x80002d2e        0x2 d703d703
+ .text.max_L    0x80002d26       0x2c src/main.o
+ *fill*         0x80002d52        0x2 d703d703
  .text.tc_irq_dsp
-                0x80002d30       0xa8 src/main.o
+                0x80002d54       0xa8 src/main.o
  .text.User_Ext_Trigger_Isr
-                0x80002dd8       0x50 src/main.o
+                0x80002dfc       0x50 src/main.o
  .text.pdca_dac_handler
-                0x80002e28       0x1c src/main.o
+                0x80002e4c       0x1c src/main.o
  .text.pdca_adc_handler
-                0x80002e44       0x1c src/main.o
- .text.main     0x80002e60      0x3b4 src/main.o
-                0x80002e60                main
+                0x80002e68       0x1c src/main.o
+ .text.main     0x80002e84      0x388 src/main.o
+                0x80002e84                main
  .text.dsp16_vect_complex_abs_kernel_x0
-                0x80003214        0x2 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
- *fill*         0x80003216        0x2 d703d703
+                0x8000320c        0x2 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
+ *fill*         0x8000320e        0x2 d703d703
  .text.dsp16_vect_complex_abs
-                0x80003218       0xf0 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
+                0x80003210       0xf0 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
                                 0x100 (size before relaxing)
-                0x80003218                dsp16_vect_complex_abs
+                0x80003210                dsp16_vect_complex_abs
  .text.dsp16_vect_complex_abs_kernel_x3
-                0x80003308       0x80 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
+                0x80003300       0x80 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
                                  0x88 (size before relaxing)
  .text.dsp16_vect_complex_abs_kernel_x2
-                0x80003388       0x58 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
+                0x80003380       0x58 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
                                  0x60 (size before relaxing)
  .text.dsp16_vect_complex_abs_kernel_x1
-                0x800033e0       0x30 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
+                0x800033d8       0x30 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
                                  0x34 (size before relaxing)
  .text.dsp16_op_sqrt
-                0x80003410       0x96 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(op_dsp16_sqrt_at32uc.o)
-                0x80003410                dsp16_op_sqrt
- *fill*         0x800034a6        0x2 d703d703
+                0x80003408       0x96 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(op_dsp16_sqrt_at32uc.o)
+                0x80003408                dsp16_op_sqrt
+ *fill*         0x8000349e        0x2 d703d703
  .text.dsp16_trans_realcomplexfft
-                0x800034a8      0x220 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(trans_dsp16_real_complex_fft_at32uc.o)
-                0x800034a8                dsp16_trans_realcomplexfft
+                0x800034a0      0x220 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(trans_dsp16_real_complex_fft_at32uc.o)
+                0x800034a0                dsp16_trans_realcomplexfft
  *(.text.*personality*)
  *(.gnu.warning)
 
@@ -888,7 +887,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
                 0x80003a00                PROVIDE (_etext, .)
                 0x80003a00                PROVIDE (etext, .)
 
-.rodata         0x80003a00      0x1d0
+.rodata         0x80003a00      0x1dc
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.COMPORT_GPIO_MAP.13079
                 0x80003a00       0x10 src/ASF/avr32/boards/uc3_a3_xplained/init.o
@@ -902,20 +901,20 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
                 0x80003b30        0x4 src/main.o
  .rodata.DSP_BUFFER_PTR
                 0x80003b34        0x4 src/main.o
- .rodata.DAC_PDCA_OPT
-                0x80003b38       0x18 src/main.o
- .rodata.str1.4
-                0x80003b50       0x14 src/main.o
- .rodata.C.86.15475
-                0x80003b64       0x38 src/main.o
  .rodata.tc_interrupt.15448
-                0x80003b9c        0x4 src/main.o
+                0x80003b38        0x4 src/main.o
+ .rodata.str1.4
+                0x80003b3c       0x20 src/main.o
+ .rodata.DAC_PDCA_OPT
+                0x80003b5c       0x18 src/main.o
+ .rodata.C.92.15544
+                0x80003b74       0x38 src/main.o
  .rodata.ADC_PDCA_OPT
-                0x80003ba0       0x18 src/main.o
+                0x80003bac       0x18 src/main.o
  .rodata.waveform_opt.15447
-                0x80003bb8        0x8 src/main.o
+                0x80003bc4        0x8 src/main.o
  .rodata.complex_abs_end_kernel_opti.11127
-                0x80003bc0       0x10 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
+                0x80003bcc       0x10 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(vect_dsp16_complex_abs.o)
 
 .rodata1
  *(.rodata1)
@@ -930,9 +929,10 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  *(.gcc_except_table)
  *(.gcc_except_table.*)
 
-.lalign         0x80003bd0        0x0
-                0x80003bd0                . = ALIGN (0x8)
-                0x80003bd0                PROVIDE (_data_lma, .)
+.lalign         0x80003bdc        0x4
+                0x80003be0                . = ALIGN (0x8)
+ *fill*         0x80003bdc        0x4 
+                0x80003be0                PROVIDE (_data_lma, .)
                 0x00000004                . = ORIGIN (INTRAM)
 
 .dalign         0x00000004        0x4
@@ -998,10 +998,10 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
 .ramtext
  *(.ramtext .ramtext.*)
 
-.ddalign        0x00000008        0x0 load address 0x80003bd0
+.ddalign        0x00000008        0x0 load address 0x80003be0
                 0x00000008                . = ALIGN (0x8)
 
-.data           0x00000008      0xc18 load address 0x80003bd0
+.data           0x00000008      0xc18 load address 0x80003be0
  *(.data .data.* .gnu.linkonce.d.*)
  .data.flashc_wait_until_ready
                 0x00000008        0x4 src/ASF/avr32/drivers/flashc/flashc.o
@@ -1009,7 +1009,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .data.DSP_STATE
                 0x0000000c        0x2 src/main.o
  *fill*         0x0000000e        0x2 
- .data.User_Usart_OPT.15459
+ .data.User_Usart_OPT.15527
                 0x00000010        0xc src/main.o
  .data.dsp16_twiddle_factors2
                 0x0000001c      0x800 ../src/ASF/avr32/utils/libs/dsplib/at32ucr2/gcc\libdsp-at32ucr2-dspspeed_opt.a(trans_dsp16_twiddle_factors.o)
@@ -1022,7 +1022,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
 .data1
  *(.data1)
 
-.balign         0x00000c20        0x0 load address 0x800047e8
+.balign         0x00000c20        0x0 load address 0x800047f8
                 0x00000c20                . = ALIGN (0x8)
                 0x00000c20                PROVIDE (_edata, .)
                 0x00000c20                PROVIDE (edata, .)
@@ -1095,13 +1095,13 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
                 0x00000d2c        0x4 src/ASF/avr32/drivers/intc/intc.o
  .bss.ADC_PDCA_BUFFER1
                 0x00000d30     0x4000 src/main.o
- .bss.clockSettings.15460
-                0x00004d30       0x10 src/main.o
- .bss.tc_tick   0x00004d40        0x4 src/main.o
  .bss.DAC_PDCA_BUFFER1
-                0x00004d44     0x4000 src/main.o
+                0x00004d30     0x4000 src/main.o
+ .bss.tc_tick   0x00008d30        0x4 src/main.o
  .bss.DSP_REAL_BUFFER
-                0x00008d44     0x2000 src/main.o
+                0x00008d34     0x2000 src/main.o
+ .bss.clockSettings.15528
+                0x0000ad34       0x10 src/main.o
  .bss.DSP_COMP_BUFFER
                 0x0000ad44     0x4000 src/main.o
  .bss.counter   0x0000ed44        0x4 src/main.o
@@ -1235,7 +1235,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_pubnames
                 0x00001738       0x1b src/main.o
 
-.debug_info     0x00000000    0x1082e
+.debug_info     0x00000000    0x10ad9
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x13c src/ASF/avr32/boards/uc3_a3_xplained/init.o
  .debug_info    0x0000013c     0x13d7 src/ASF/avr32/drivers/abdac/abdac.o
@@ -1252,9 +1252,9 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_info    0x0000be5c       0x95 src/ASF/avr32/utils/startup/startup_uc3.o
  .debug_info    0x0000bef1       0x9c src/ASF/avr32/utils/startup/trampoline_uc3.o
  .debug_info    0x0000bf8d     0x157b src/ASF/common/services/clock/uc3a3_a4/sysclk.o
- .debug_info    0x0000d508     0x3326 src/main.o
+ .debug_info    0x0000d508     0x35d1 src/main.o
 
-.debug_abbrev   0x00000000     0x1ec8
+.debug_abbrev   0x00000000     0x1f27
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xae src/ASF/avr32/boards/uc3_a3_xplained/init.o
  .debug_abbrev  0x000000ae      0x254 src/ASF/avr32/drivers/abdac/abdac.o
@@ -1271,9 +1271,9 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_abbrev  0x000018d1       0x12 src/ASF/avr32/utils/startup/startup_uc3.o
  .debug_abbrev  0x000018e3       0x14 src/ASF/avr32/utils/startup/trampoline_uc3.o
  .debug_abbrev  0x000018f7      0x2d0 src/ASF/common/services/clock/uc3a3_a4/sysclk.o
- .debug_abbrev  0x00001bc7      0x301 src/main.o
+ .debug_abbrev  0x00001bc7      0x360 src/main.o
 
-.debug_line     0x00000000     0x77db
+.debug_line     0x00000000     0x77d3
  *(.debug_line)
  .debug_line    0x00000000      0x7a2 src/ASF/avr32/boards/uc3_a3_xplained/init.o
  .debug_line    0x000007a2      0x7bf src/ASF/avr32/drivers/abdac/abdac.o
@@ -1290,9 +1290,9 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_line    0x00006264       0xf2 src/ASF/avr32/utils/startup/startup_uc3.o
  .debug_line    0x00006356       0x67 src/ASF/avr32/utils/startup/trampoline_uc3.o
  .debug_line    0x000063bd      0x966 src/ASF/common/services/clock/uc3a3_a4/sysclk.o
- .debug_line    0x00006d23      0xab8 src/main.o
+ .debug_line    0x00006d23      0xab0 src/main.o
 
-.debug_frame    0x00000000     0x15a0
+.debug_frame    0x00000000     0x15a8
  *(.debug_frame)
  .debug_frame   0x00000000       0x2c src/ASF/avr32/boards/uc3_a3_xplained/init.o
  .debug_frame   0x0000002c       0x84 src/ASF/avr32/drivers/abdac/abdac.o
@@ -1306,9 +1306,9 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_frame   0x0000104c      0x148 src/ASF/avr32/drivers/tc/tc.o
  .debug_frame   0x00001194      0x2ac src/ASF/avr32/drivers/usart/usart.o
  .debug_frame   0x00001440       0xac src/ASF/common/services/clock/uc3a3_a4/sysclk.o
- .debug_frame   0x000014ec       0xb4 src/main.o
+ .debug_frame   0x000014ec       0xbc src/main.o
 
-.debug_str      0x00000000     0x34ad
+.debug_str      0x00000000     0x34d3
  *(.debug_str)
  .debug_str     0x00000000      0x132 src/ASF/avr32/boards/uc3_a3_xplained/init.o
                                 0x16b (size before relaxing)
@@ -1334,10 +1334,10 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
                                 0x905 (size before relaxing)
  .debug_str     0x000030cf      0x249 src/ASF/common/services/clock/uc3a3_a4/sysclk.o
                                 0x72f (size before relaxing)
- .debug_str     0x00003318      0x195 src/main.o
-                                0xc89 (size before relaxing)
+ .debug_str     0x00003318      0x1bb src/main.o
+                                0xcbc (size before relaxing)
 
-.debug_loc      0x00000000     0x334e
+.debug_loc      0x00000000     0x34b9
  *(.debug_loc)
  .debug_loc     0x00000000       0x2b src/ASF/avr32/boards/uc3_a3_xplained/init.o
  .debug_loc     0x0000002b      0x17a src/ASF/avr32/drivers/abdac/abdac.o
@@ -1351,7 +1351,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  .debug_loc     0x0000238f      0x3ff src/ASF/avr32/drivers/tc/tc.o
  .debug_loc     0x0000278e      0x9c5 src/ASF/avr32/drivers/usart/usart.o
  .debug_loc     0x00003153      0x12d src/ASF/common/services/clock/uc3a3_a4/sysclk.o
- .debug_loc     0x00003280       0xce src/main.o
+ .debug_loc     0x00003280      0x239 src/main.o
 
 .debug_macinfo  0x00000000   0xe3ca79
  *(.debug_macinfo)
@@ -1402,12 +1402,12 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
                 0x00010000                _estack = .
                 0xff000000                . = ORIGIN (HRAM0)
 
-.data_hram0     0xff000000        0x0 load address 0x800047e8
+.data_hram0     0xff000000        0x0 load address 0x800047f8
                 0xff000000                PROVIDE (_data_hram0, .)
  *(.data_hram0)
                 0xff000000                . = ALIGN (0x8)
                 0xff000000                PROVIDE (_edata_hram0, .)
-                0x800047e8                PROVIDE (_data_hram0_lma, ABSOLUTE (LOADADDR (.data_hram0)))
+                0x800047f8                PROVIDE (_data_hram0_lma, ABSOLUTE (LOADADDR (.data_hram0)))
                 0xff000000                . = ALIGN (0x8)
 
 .bss_hram0      0xff000000        0x0
@@ -1416,12 +1416,12 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
                 0xff000000                PROVIDE (_bss_hram0_end, .)
                 0xff008000                . = ORIGIN (HRAM1)
 
-.data_hram1     0xff008000        0x0 load address 0x800047e8
+.data_hram1     0xff008000        0x0 load address 0x800047f8
                 0xff008000                PROVIDE (_data_hram1, .)
  *(.data_hram1)
                 0xff008000                . = ALIGN (0x8)
                 0xff008000                PROVIDE (_edata_hram1, .)
-                0x800047e8                PROVIDE (_data_hram1_lma, ABSOLUTE (LOADADDR (.data_hram1)))
+                0x800047f8                PROVIDE (_data_hram1_lma, ABSOLUTE (LOADADDR (.data_hram1)))
                 0xff008000                . = ALIGN (0x8)
 
 .bss_hram1      0xff008000        0x0
@@ -1436,7 +1436,7 @@ LOAD c:/program files (x86)/atmel/atmel toolchain/avr32 gcc/native/3.4.1067/avr3
  *(.note.GNU-stack)
 OUTPUT(SigSys.elf elf32-avr32)
 
-.debug_ranges   0x00000000      0x8c0
+.debug_ranges   0x00000000      0x8a0
  .debug_ranges  0x00000000       0x18 src/ASF/avr32/boards/uc3_a3_xplained/init.o
  .debug_ranges  0x00000018       0x48 src/ASF/avr32/drivers/abdac/abdac.o
  .debug_ranges  0x00000060       0x58 src/ASF/avr32/drivers/adc/adc.o
@@ -1450,4 +1450,4 @@ OUTPUT(SigSys.elf elf32-avr32)
  .debug_ranges  0x000006f0       0xd8 src/ASF/avr32/drivers/usart/usart.o
  .debug_ranges  0x000007c8       0x20 src/ASF/avr32/utils/startup/startup_uc3.o
  .debug_ranges  0x000007e8       0x48 src/ASF/common/services/clock/uc3a3_a4/sysclk.o
- .debug_ranges  0x00000830       0x90 src/main.o
+ .debug_ranges  0x00000830       0x70 src/main.o

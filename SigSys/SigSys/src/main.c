@@ -307,7 +307,44 @@ static void pdca_set_irq(void)
     /* Enable all interrupt/exception. */
     Enable_global_interrupt();
 }
+static int max_L(dsp16_t *vect1,int start, int end){
+	int a = 0;
+	int b = 0;
+	for(int i=start; i<end; i++){
+		if(vect1[i] >= a){
+		a = vect1[i];
+		//User_Usart_int2str(a);
+		//	usart_write_line(USART,"m ");
+		//	User_Usart_int2str(i);
+		//		usart_write_line(USART,"i ");
+		b = i;
+		}
+	}
+	return b;
+}
 
+static void convertFreq(int low, int high) {
+	char *symbol = "123456789*0#";
+	int lfg[4] = {abs(697-low),abs(770-low),abs(852-low),abs(941-low)};
+	int hfg[3] = {abs(1209-high),abs(1336-high),abs(1447-high)};
+	int lowNum = 0;
+	int highNum = 0;
+
+	for (int a=1; a<4; a++)
+	{
+		if(lfg[a] < lfg[lowNum]){
+			lowNum = a;
+		}
+	}
+	for (int a=1; a<3; a++)
+	{
+		if(hfg[a] < hfg[highNum]){
+			highNum = a;
+		}
+	}
+	int symbolValue = highNum + (3 * lowNum);
+	usart_putchar(USART,symbol[symbolValue]);
+}
 /************************* End of SUB FUNCTIONS ***************************/
 
 
@@ -398,9 +435,12 @@ int main (void)
     pdca_enable(PDCA_CHANNEL_DAC);
     //timer init
     tc_init(tc,ADC_FREQ);
+	uint32_t extTriggerCount =175*(ADC_FREQ/1000);
     while (1)
     {	
-		if (counter >= ADC_FREQ) // control the time when the next Ext_Trigger is valid
+	
+		if (counter >= extTriggerCount)
+								// control the time when the next Ext_Trigger is valid
 		{						 // counter = the number of cycles; "counter = ADC_FREQ" corresponds to the time of 1 second
 			gpio_enable_pin_interrupt(Ext_Trigger_Pin,GPIO_RISING_EDGE);  // "counter = ADC_FREQ/1000" corresponds to 1 ms
 		}
@@ -418,11 +458,54 @@ int main (void)
 	dsp16_trans_realcomplexfft(&DSP_COMP_BUFFER,&DSP_REAL_BUFFER,N_of_bits);
 	dsp16_vect_complex_abs(&DSP_REAL_BUFFER,&DSP_COMP_BUFFER,DATA_SIZE);
 	
-			for (int ind=0;ind<= DATA_SIZE;ind =ind++){
+	uint16_t df = ADC_FREQ/DATA_SIZE;
+	uint16_t posCut = 1075/df;
+	
+	/*usart_write_line(USART,"posCut:");
+	User_Usart_int2str(posCut);
+	usart_write_line(USART,"df: ");
+	User_Usart_int2str(df);
+	*/
+	
+
+    int a = max_L(&DSP_REAL_BUFFER,10,22);
+	//usart_write_line(USART," v1: ");
+  //    User_Usart_int2str(a*df);
+	
+	int b = max_L(&DSP_REAL_BUFFER,23,35);
+	//usart_write_line(USART," v2: ");
+//	User_Usart_int2str(b*df);
+	
+	
+//	usart_write_line(USART,"Num:");
+	
+	convertFreq(a*df,b*df);
+	
+	/*dsp16_t v1 = dsp16_vect_max(&DSP_REAL_BUFFER,(posCut));
+	dsp16_t v2 = dsp16_vect_max(&DSP_REAL_BUFFER,DATA_SIZE);
+	
+	
+	for(int i =0; i < posCut+400; i++){
+	if(v1 == DSP_REAL_BUFFER[i]){
+		usart_write_line(USART," v1: ");
+		User_Usart_int2str(i+1*df);
+	}
+	}
+	for(int i = 1; i < DATA_SIZE; i++){
+	if(v2 == DSP_REAL_BUFFER[i]){
+		
+		usart_write_line(USART," v2: ");
+		User_Usart_int2str(i*df);
+		break;
+	}
+	
+	}*/
+		
+			/*for (int ind=0;ind<= DATA_SIZE;ind =ind++){
 
 				User_Usart_int2str(DSP_REAL_BUFFER[ind]);
 				usart_write_line(USART,",");
-			}
+			}*/
 
 
 
